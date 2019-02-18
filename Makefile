@@ -6,18 +6,19 @@
 #    By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 09:44:22 by pavaucha          #+#    #+#              #
-#    Updated: 2019/02/18 16:50:47 by pavaucha         ###   ########.fr        #
+#    Updated: 2019/02/18 17:03:46 by pavaucha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = asm
+NAME = reverse_cor
 
 SRC_PATH	= srcs/
 OBJ_PATH	= objs/
 LIBFT_PATH	= libft/
 LIBFT_A		= libft/libft.a
 
-SRC_NAME = 	main.c 
+SRC_NAME = 	main.c \
+			parsing_champ.c \
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
