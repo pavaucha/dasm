@@ -22,6 +22,6 @@ int				parsing_champ(char *champ)
 	{
 		ft_printf("Can't open or read your file <%s>\n", champ);
 		return (0);
-	}	
+	}
     return (0);
 }
