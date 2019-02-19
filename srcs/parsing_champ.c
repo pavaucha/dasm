@@ -11,20 +11,14 @@ static int		ft_real_cor(char *name)
 }
 
 
-int				parsing_champ(char *champ)
+int				parsing_champ(char *name, t_champ *champ)
 {
-	char	*file;
-
-    if (ft_real_cor(champ) == 0)
+    if (ft_real_cor(name) == 0)
 	{
-		ft_printf("<%s> is not a .cor\n", champ);
+		ft_printf("<%s> is not a .cor\n", name);
 		return (0);
 	}
-	if (ft_open_read_file(champ) == 0)
-	{
-		// ta fonction qui renvoie file, modifie, si ca doit etre un ** ou un *, PS t'es trop fort jtm
-		ft_printf("Can't open or read your file <%s>\n", champ);
+	if (open_read_file(name, champ) == -1)
 		return (0);
-	}
-    return (0);
+    return (1);
 }
