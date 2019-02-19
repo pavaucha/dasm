@@ -13,6 +13,8 @@ static int		ft_real_cor(char *name)
 
 int				parsing_champ(char *champ)
 {
+	char	*file;
+
     if (ft_real_cor(champ) == 0)
 	{
 		ft_printf("<%s> is not a .cor\n", champ);
@@ -20,6 +22,7 @@ int				parsing_champ(char *champ)
 	}
 	if (ft_open_read_file(champ) == 0)
 	{
+		// ta fonction qui renvoie file, modifie, si ca doit etre un ** ou un *, PS t'es trop fort jtm
 		ft_printf("Can't open or read your file <%s>\n", champ);
 		return (0);
 	}
