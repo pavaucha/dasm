@@ -54,8 +54,19 @@ typedef	struct		s_champ
 	uint8_t		comment[COMMENT_LEN + 1];
 }					t_champ;
 
+typedef	struct		s_ocp
+{
+	unsigned char	vide : 2;
+	unsigned char	param3 : 2;
+	unsigned char	param2 : 2;
+	unsigned char	param1 : 2;
+}					t_ocp;
+
 int         main(int ac, char **av);
 int         parsing_champ(char *name, t_champ *champ);
-int			open_read_file(char *name, t_champ *champ);
+int			complete(int fd, t_champ *champ);
+int			ft_error(int i);
+int			complete_file(int fd, t_champ champ);
+int         get_ocp(int fd, t_champ champ, int *i);
 
 #endif 

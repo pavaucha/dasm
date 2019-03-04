@@ -6,7 +6,7 @@
 #    By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 09:44:22 by pavaucha          #+#    #+#              #
-#    Updated: 2019/02/19 13:45:23 by pavaucha         ###   ########.fr        #
+#    Updated: 2019/03/04 15:04:17 by pavaucha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ LIBFT_A		= libft/libft.a
 
 SRC_NAME = 	main.c \
 			parsing_champ.c \
-			open_read_file.c
+			open_read_file.c \
+			complete_file.c \
+			get_ocp.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
