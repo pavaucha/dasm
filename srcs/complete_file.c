@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "reverse.h"
-#include "libft.h"
 
 static void	write_header(int fd, t_champ champ)
 {
@@ -47,7 +46,7 @@ static int	complete_instruct(int fd, int i)
 		write(fd, "aff ", 4);
 	else
 		return (-1);
-	return (1);	
+	return (1);
 }
 
 static int	get_instruct(int fd, int i)
@@ -102,4 +101,3 @@ int			complete_file(int fd, t_champ champ)
 	close(fd);
 	return (0);
 }
-        

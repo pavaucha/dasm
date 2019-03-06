@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/06 15:01:10 by mavui             #+#    #+#             */
+/*   Updated: 2019/03/06 17:52:28 by pavaucha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef REVERSE_H
 # define REVERSE_H
 
@@ -44,34 +56,33 @@
 # define REG_CF 			17
 # define MAX_REG 			18
 
-
-typedef	struct		s_champ
+typedef	struct				s_champ
 {
 	uint32_t	len;
 	uint8_t		magic[4];
 	uint8_t		instructions[CHAMP_MAX_SIZE];
 	uint8_t		name[PROG_NAME_LEN + 1];
 	uint8_t		comment[COMMENT_LEN + 1];
-}					t_champ;
+}							t_champ;
 
-typedef	struct		s_ocp
+typedef	struct				s_ocp
 {
 	unsigned char	vide : 2;
 	unsigned char	param3 : 2;
 	unsigned char	param2 : 2;
 	unsigned char	param1 : 2;
-}					t_ocp;
+}							t_ocp;
 
-int         main(int ac, char **av);
-int         parsing_champ(char *name, t_champ *champ);
-int			complete(int fd, t_champ *champ);
-int			ft_error(int i);
-int			complete_file(int fd, t_champ champ);
-int         get_ocp(int fd, t_champ champ, int *i);
-char		*ft_strjoin_free(char const *s1, char const *s2);
-int			write_instruction(t_champ champ, char *ocp, int *i, int fd);
-int			complete_ocp(t_champ champ, int fd, int *i);
-t_champ		ft_is_negative(t_champ champ, int i, int rep, int fd)
+int 				        main(int ac, char **av);
+int     				    parsing_champ(char *name, t_champ *champ);
+int							complete(int fd, t_champ *champ);
+int							ft_error(int i);
+int							complete_file(int fd, t_champ champ);
+int     				    get_ocp(int fd, t_champ champ, int *i);
+char						*ft_strjoin_free(char const *s1, char const *s2);
+int							write_instruction(t_champ champ, char *ocp, int *i, int fd);
+int							complete_ocp(t_champ champ, int fd, int *i);
+t_champ						ft_is_negative(t_champ champ, int i, int rep, int fd)
 
 
-#endif 
+#endif

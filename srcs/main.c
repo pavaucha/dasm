@@ -6,7 +6,7 @@
 /*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:32:20 by pavaucha          #+#    #+#             */
-/*   Updated: 2019/03/06 14:56:15 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:50:15 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ static char		*open_file(char *name)
 		i++;
 	while (name[i] != '.' && i > 0)
 		i--;
-	if ((str = ft_strnew((size_t)i + 2)) == NULL)
+	if ((str = ft_strnew((size_t)i + 3)) == NULL)
 		return (NULL);
 	str = ft_strncpy(str, name, (size_t)i);
-	str = ft_strcat(str, ".su");
+	str = ft_strcat(str, ".rev");
 	return (str);
 }
 
