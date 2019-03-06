@@ -6,7 +6,7 @@
 /*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 15:01:10 by mavui             #+#    #+#             */
-/*   Updated: 2019/03/06 17:52:28 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:53:44 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int     				    get_ocp(int fd, t_champ champ, int *i);
 char						*ft_strjoin_free(char const *s1, char const *s2);
 int							write_instruction(t_champ champ, char *ocp, int *i, int fd);
 int							complete_ocp(t_champ champ, int fd, int *i);
-t_champ						ft_is_negative(t_champ champ, int i, int rep, int fd)
+t_champ						ft_is_negative(t_champ champ, int i, int rep, int fd);
 
 
 #endif
