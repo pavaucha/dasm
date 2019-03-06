@@ -68,7 +68,8 @@ int			complete(int fd, t_champ *champ);
 int			ft_error(int i);
 int			complete_file(int fd, t_champ champ);
 int         get_ocp(int fd, t_champ champ, int *i);
+char		*ft_strjoin_free(char const *s1, char const *s2);
 int			write_instruction(t_champ champ, char *ocp, int *i, int fd);
-int				complete_ocp(t_champ champ, int fd, int *i);
+int			complete_ocp(t_champ champ, int fd, int *i);
 
 #endif 
