@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_ocp.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pavaucha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/03/06 14:54:14 by pavaucha          #+#    #+#             */
+/*   Updated: 2019/03/06 14:54:15 by pavaucha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "reverse.h"
 #include "libft.h"
 
@@ -14,8 +26,8 @@ char		*ft_strjoin_free(char const *s1, char const *s2)
 		return (NULL);
 	ft_strcpy(new_s, (char*)s1);
 	ft_strcat(new_s, (char*)s2);
-	ft_strdel(&s1);
-	ft_strdel(&s2);
+	ft_strdel((void*)&s1);
+	ft_strdel((void*)&s2);
 	return (new_s);
 }
 
@@ -39,11 +51,14 @@ static char	*ft_take_ocp(t_champ champ, int *i)
 int			get_ocp(int fd, t_champ champ, int *i)
 {
 	char	*ocp;
+	int		j;
 
 	if (complete_ocp(champ, fd, i) == 1)
 		return (1);
 	if ((ocp = ft_take_ocp(champ, i)) == NULL)
 		return (-1);
 	*i = *i + 1;
-	return (write_instruction(champ, ocp, i, fd));
+	j = write_instruction(champ, ocp, i, fd);
+	ft_strdel(&ocp);
+	return (j);
 }
