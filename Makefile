@@ -6,7 +6,7 @@
 #    By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 09:44:22 by pavaucha          #+#    #+#              #
-#    Updated: 2019/03/04 15:04:17 by pavaucha         ###   ########.fr        #
+#    Updated: 2019/03/06 14:24:37 by pavaucha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC_NAME = 	main.c \
 			parsing_champ.c \
 			open_read_file.c \
 			complete_file.c \
-			get_ocp.c
+			get_ocp.c \
+			write_instruct.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
