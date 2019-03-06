@@ -6,7 +6,7 @@
 /*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:32:20 by pavaucha          #+#    #+#             */
-/*   Updated: 2019/03/04 14:06:05 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/06 14:56:15 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ static char		*open_file(char *name)
 	return (str);
 }
 
-int 			main(int ac, char **av)
+int				main(int ac, char **av)
 {
-	int			fd;
 	t_champ		champ;
 	char		*str;
 
@@ -48,7 +47,8 @@ int 			main(int ac, char **av)
 		ft_strdel(&str);
 		return (ft_error(7));
 	}
-	if (complete_file(open(str, O_WRONLY | O_TRUNC | O_CREAT, 0600), champ) != 0)
+	if (complete_file(open(str, O_WRONLY
+		| O_TRUNC | O_CREAT, 0600), champ) != 0)
 	{
 		ft_strdel(&str);
 		return (-1);
