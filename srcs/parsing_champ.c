@@ -32,18 +32,18 @@ static int		open_read_file(char *name, t_champ *champ)
 	{
 		close(fd);
 		return (-1);
-    }
+	}
 	return (1);
 }
 
 int				parsing_champ(char *name, t_champ *champ)
 {
-    if (ft_real_cor(name) == 0)
+	if (ft_real_cor(name) == 0)
 	{
 		ft_printf("<%s> is not a .cor\n", name);
 		return (-1);
 	}
 	if (open_read_file(name, champ) == -1)
 		return (-1);
-    return (1);
+	return (1);
 }

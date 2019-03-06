@@ -33,11 +33,10 @@ int				ft_error(int i)
 	return (-1);
 }
 
-
 static int		bytes_to_int(uint8_t *bytes, unsigned *integer)
 {
-	unsigned 		i;
-	unsigned		j;
+	unsigned	i;
+	unsigned	j;
 
 	i = 0;
 	j = 0;
@@ -64,7 +63,7 @@ static int		check_magic(int fd, t_champ *champ)
 		return (0);
 }
 
-static int			complete_meta(int fd, t_champ *champ)
+static int		complete_meta(int fd, t_champ *champ)
 {
 	ssize_t			ret;
 	uint8_t			bytes[4];
@@ -83,16 +82,16 @@ static int			complete_meta(int fd, t_champ *champ)
 	else if ((ret = read(fd, bytes, 4)) != 4)
 		return (ft_error(2));
 	else if ((ret = read(fd, champ->instructions, champ->len)) != champ->len)
-			return (ft_error(5));
+		return (ft_error(5));
 	else if (read(fd, buffer, 1) != 0)
 		return (ft_error(6));
 	else
 		return (0);
 }
 
-int					complete(int fd, t_champ *champ)
+int				complete(int fd, t_champ *champ)
 {
-	int 		ret;
+	int	ret;
 
 	if ((ret = check_magic(fd, champ)) != 0)
 		return (ret);
