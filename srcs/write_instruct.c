@@ -6,18 +6,19 @@
 /*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 14:39:11 by pavaucha          #+#    #+#             */
-/*   Updated: 2019/03/06 14:44:11 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:48:36 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "reverse.h"
-#include "libft.h"
 
 static int		write_dir(int fd, t_champ champ, int i)
 {
 	char			*str;
 	unsigned int	j;
 
+	write(fd, "%", 1);
+	champ = ft_is_negative(champ, i, 4, fd);
 	if ((str = ft_strjoin_free(ft_itoa_base(champ.instructions[i], 2, 1),
 		ft_itoa_base(champ.instructions[i + 1], 2, 1))) == NULL)
 		return (-1);
@@ -29,7 +30,6 @@ static int		write_dir(int fd, t_champ champ, int i)
 		return (-1);
 	j = ft_atoi_base(str, 2);
 	str = ft_itoa(j);
-	write(fd, "%", 1);
 	write(fd, str, ft_strlen(str));
 	ft_strdel(&str);
 	return (i + 4);
@@ -56,12 +56,12 @@ static int		write_ind(int fd, t_champ champ, int i, int d)
 	unsigned int	j;
 	char			*str;
 
+	if (d == 9 || d == 10 || d == 11 || d == 12 || d == 14 || d == 15)
+		write(fd, "%", 1);
 	if ((str = ft_strjoin_free(ft_itoa_base(champ.instructions[i], 2, 1),
 					ft_itoa_base(champ.instructions[i + 1], 2, 1))) == NULL)
 		return (-1);
 	j = ft_atoi_base(str, 2);
-	if (d == 9 || d == 10 || d == 11 || d == 12 || d == 14 || d == 15)
-		write(fd, "%", 1);
 	if ((str = ft_itoa(j)) == NULL)
 		return (-1);
 	write(fd, str, ft_strlen(str));

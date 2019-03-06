@@ -71,5 +71,7 @@ int         get_ocp(int fd, t_champ champ, int *i);
 char		*ft_strjoin_free(char const *s1, char const *s2);
 int			write_instruction(t_champ champ, char *ocp, int *i, int fd);
 int			complete_ocp(t_champ champ, int fd, int *i);
+t_champ		ft_is_negative(t_champ champ, int i, int rep, int fd)
+
 
 #endif 

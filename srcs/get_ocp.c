@@ -3,15 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   get_ocp.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pavaucha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 14:54:14 by pavaucha          #+#    #+#             */
-/*   Updated: 2019/03/06 14:54:15 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:48:38 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "reverse.h"
-#include "libft.h"
+
+t_champ			ft_is_negative(t_champ champ, int i, int rep, int fd)
+{
+	if (champ.instructions[i] <= 127)
+		return (champ);
+	write(fd, "-", 1);
+	while (rep > 0)
+	{
+		champ.instructions[i] = 255 - champ.instructions[i];
+		i++;
+		rep--;
+	}
+	champ.instructions[i - 1] += 1;
+	return (champ);
+}
 
 char		*ft_strjoin_free(char const *s1, char const *s2)
 {
