@@ -6,7 +6,7 @@
 #    By: pavaucha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/03 12:20:26 by pavaucha          #+#    #+#              #
-#    Updated: 2019/03/02 20:39:29 by mavui            ###   ########.fr        #
+#    Updated: 2019/03/07 15:54:47 by pavaucha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,7 +79,10 @@ LIBFT = ft_strlen		\
 		ft_strndup 		\
 		ft_tolower 		\
 		ft_memset 		\
-		get_next_line
+		get_next_line	\
+		ft_bzero		\
+		ft_memcmp		\
+		ft_itoa
 
 
 
