@@ -6,7 +6,7 @@
 #    By: pavaucha <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/03 12:20:26 by pavaucha          #+#    #+#              #
-#    Updated: 2019/01/12 01:47:54 by mavui            ###   ########.fr        #
+#    Updated: 2019/03/02 20:39:29 by mavui            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,82 +40,49 @@ PRINTFDIR = srcs/ft_printf
 #   Source name   #
 ###################
 
-LIBFT = ft_memset		\
-		ft_bzero		\
-		ft_memcpy		\
-		ft_memccpy		\
-	  	ft_memmove		\
-	  	ft_memchr		\
-	  	ft_memcmp		\
-	  	ft_strlen		\
+LIBFT = ft_strlen		\
 	  	ft_strdup		\
-	  	ft_strndup		\
-	  	ft_strcdup		\
 	  	ft_strcpy		\
-	  	ft_strncpy		\
 	  	ft_strcat		\
-	  	ft_strncat		\
-	  	ft_strlcat		\
 	  	ft_strchr		\
 	  	ft_strrchr		\
-	  	ft_strstr		\
-	  	ft_strnstr		\
 	  	ft_strcmp		\
-	  	ft_strncmp		\
 	  	ft_atoi			\
 	  	ft_isalpha		\
 	  	ft_isdigit		\
 	  	ft_isalnum		\
-	  	ft_isascii		\
-	  	ft_isprint		\
-	  	ft_toupper		\
-	  	ft_tolower		\
-	  	ft_memalloc		\
-	  	ft_memdel		\
 	  	ft_strnew		\
 	  	ft_strdel		\
 	  	ft_strdel_tab	\
-	  	ft_strclr		\
-	  	ft_striter		\
-	  	ft_striteri		\
-	  	ft_strmap		\
-	  	ft_strmapi		\
-	  	ft_strequ		\
-	  	ft_strnequ		\
 	  	ft_strsub		\
 	  	ft_strjoin		\
 	  	ft_strjoin_char	\
 	  	ft_strtrim		\
 	  	ft_strsplit		\
-	  	ft_itoa			\
 	  	ft_putchar		\
-	  	ft_putstr		\
-	  	ft_putnstr		\
-	  	ft_putendl		\
-	  	ft_putnbr		\
 	  	ft_putchar_fd	\
+	  	ft_putstr		\
 	  	ft_putstr_fd	\
-	  	ft_putendl_fd	\
-	  	ft_putnbr_fd	\
-	  	ft_lstnew		\
-	  	ft_lstdelone	\
-	  	ft_lstdel		\
-	  	ft_lstadd		\
-	  	ft_lstiter		\
-	  	ft_lstmap		\
-	  	ft_power		\
+	  	ft_putnstr		\
 	  	ft_itoa_base	\
 	  	ft_atoi_base	\
-	  	ft_num_len		\
-		ft_putcolor		\
-		ft_strswap		\
-		ft_abs			\
-		ft_swap			\
-		ft_strnum		\
 		ft_tablen		\
 		ft_isblank		\
 		ft_strlen_blank \
+		ft_isprint 		\
+		ft_memalloc		\
+		ft_num_len 		\
+		ft_power 		\
+		ft_putendl 		\
+		ft_strncmp 		\
+		ft_strncpy 		\
+		ft_strndup 		\
+		ft_tolower 		\
+		ft_memset 		\
 		get_next_line
+
+
+
 
 PRINTF = ft_printf			\
 		 ft_check_flags		\

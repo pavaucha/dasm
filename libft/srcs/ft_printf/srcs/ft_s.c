@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_s.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/03 12:16:42 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/05 14:04:40 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 16:06:36 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 16:06:38 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,16 @@ static void		ft_s_width(t_flags flags, int len)
 	if (flags.minus == 1)
 	{
 		while (flags.width-- > len)
-			ft_putchar(' ');
+			ft_putchar_fd(' ', 2);
 	}
 	else if (flags.minus == 0)
 	{
 		while (flags.width-- > len)
 		{
 			if (flags.zero == 0)
-				ft_putchar(' ');
+				ft_putchar_fd(' ', 2);
 			else if (flags.zero == 1)
-				ft_putchar('0');
+				ft_putchar_fd('0', 2);
 		}
 	}
 }

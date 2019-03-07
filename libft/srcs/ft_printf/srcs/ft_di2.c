@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_di2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/09 11:32:27 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/11 12:19:31 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 16:06:00 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 16:06:01 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ static void		ft_d_plus_space_preci(t_flags flags, char **s, int len, int *i)
 		(*s)[*i] = ' ';
 	if (flags.space == 1 || flags.plus == 1)
 		(*i)++;
-	if ((flags.space == 1 || flags.plus == 1) && flags.preci > 0 &&
-			flags.zero == 1)
+	if ((flags.space == 1 || flags.plus == 1) && flags.preci > 0
+			&& flags.zero == 1)
 		len++;
 	while (flags.preci > len)
 	{

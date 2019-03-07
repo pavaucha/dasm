@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_percent.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/22 10:18:38 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/05 17:20:09 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 16:06:25 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 16:06:26 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int				ft_percent(t_flags flags)
 	}
 	else if (flags.minus == 0)
 		ft_percent_minus(&s, flags, i, len);
-	ft_putstr(s);
+	ft_putstr_fd(s, 2);
 	ft_strdel(&s);
 	return (len);
 }

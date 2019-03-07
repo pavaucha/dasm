@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_u.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/20 10:04:55 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/09 10:13:55 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 16:06:40 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 16:06:42 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int				ft_u(const char **format, va_list ap, t_flags flags)
 	ft_u_val(val, &s, len[1], &i);
 	if (flags.minus == 1)
 		ft_u_width(flags, &s, len, &i);
-	ft_putstr(s);
+	ft_putstr_fd(s, 2);
 	ft_strdel(&s);
 	return (len[0]);
 }

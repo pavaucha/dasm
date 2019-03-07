@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_p.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/21 14:32:34 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/05 17:57:36 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 16:06:17 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 16:06:19 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int				ft_p(va_list ap, t_flags flags)
 	while (s[++i] != '\0')
 		if (ft_isalpha(s[i]) == 1)
 			s[i] = ft_tolower(s[i]);
-	ft_putstr(s);
+	ft_putstr_fd(s, 2);
 	ft_strdel(&s);
 	return (len[0]);
 }

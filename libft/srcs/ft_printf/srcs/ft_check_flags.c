@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/08 14:42:08 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/05 17:16:10 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 16:05:49 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 16:05:50 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ t_arg			*ft_check_flags(const char **format, va_list ap, t_arg *arg)
 	reset_flags(&(arg->flags));
 	if (**format == '\0')
 		return (arg);
-	while ((ft_strchr(SIZE, **format) || ft_strchr(FLAGS, **format) ||
-				ft_isdigit(**format)) && **format != '\0')
+	while ((ft_strchr(SIZE, **format) || ft_strchr(FLAGS, **format)
+				|| ft_isdigit(**format)) && **format != '\0')
 	{
 		if (ft_strchr(FLAGS, **format))
 			flag(format, &(arg->flags));

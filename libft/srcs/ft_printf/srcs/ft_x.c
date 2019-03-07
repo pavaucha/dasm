@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_x.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/21 10:33:39 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/09 10:52:29 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 16:06:56 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 16:06:57 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int				ft_x(const char **format, va_list ap, t_flags flags)
 			if (ft_isalpha(s[i]) == 1)
 				s[i] = ft_tolower(s[i]);
 	}
-	ft_putstr(s);
+	ft_putstr_fd(s, 2);
 	ft_strdel(&s);
 	return (len[0]);
 }

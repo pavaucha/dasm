@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bigs.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/05 12:07:07 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/09 11:55:55 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 16:05:40 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 16:05:42 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,16 @@ static void		ft_bigs_width(t_flags flags, int len)
 	if (flags.minus == 1)
 	{
 		while (flags.width-- > len)
-			ft_putchar(' ');
+			ft_putchar_fd(' ', 2);
 	}
 	else if (flags.minus == 0)
 	{
 		while (flags.width-- > len)
 		{
 			if (flags.zero == 0)
-				ft_putchar(' ');
+				ft_putchar_fd(' ', 2);
 			else if (flags.zero == 1)
-				ft_putchar('0');
+				ft_putchar_fd('0', 2);
 		}
 	}
 }

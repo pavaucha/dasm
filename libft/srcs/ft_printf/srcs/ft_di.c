@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_di.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/18 10:15:14 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/09 11:39:12 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 16:05:56 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 16:05:58 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static int	ft_d_len(t_flags *flags, int len)
 		flags->width = 0;
 	else
 		len = flags->width;
-	if (flags->plus == 1 || (flags->minus == 1 && flags->width > len + 1) ||
-			(flags->minus == 0 && flags->width > len))
+	if (flags->plus == 1 || (flags->minus == 1 && flags->width > len + 1)
+			|| (flags->minus == 0 && flags->width > len))
 		flags->space = 0;
 	if (flags->space == 1 && (flags->minus == 1 || flags->width == 0))
 		len++;
@@ -62,7 +62,7 @@ int			ft_di(const char **format, va_list ap, t_flags flags)
 		return (-1);
 	s[len[0]] = '\0';
 	ft_di2(flags, &s, len, val);
-	ft_putstr(s);
+	ft_putstr_fd(s, 2);
 	ft_strdel(&s);
 	return (len[0]);
 }

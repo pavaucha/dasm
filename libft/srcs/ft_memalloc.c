@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 10:06:22 by lezhang           #+#    #+#             */
-/*   Updated: 2017/12/04 12:43:06 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 15:48:01 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 15:48:03 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	*ft_memalloc(size_t size)
 	size_t	i;
 
 	i = 0;
-	str = (char*)malloc(sizeof(char) * (size + 1));
+	if (!(str = (char*)malloc(sizeof(char) * (size + 1))))
+		return (NULL);
 	if (str == NULL)
 		return (NULL);
 	while (i < size)

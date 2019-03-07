@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_wchar.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/13 10:59:11 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/05 11:43:10 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 16:06:43 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 16:06:44 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int		one_bit(wchar_t c)
 {
-	ft_putchar(c);
+	ft_putchar_fd(c, 2);
 	return (1);
 }
 
@@ -27,8 +27,8 @@ static int		two_bit(wchar_t c)
 	two = 0x80;
 	one += (c >> 6) & 0x1F;
 	two += c & 0x3F;
-	ft_putchar(one);
-	ft_putchar(two);
+	ft_putchar_fd(one, 2);
+	ft_putchar_fd(two, 2);
 	return (2);
 }
 
@@ -44,9 +44,9 @@ static int		three_bit(wchar_t c)
 	one += (c >> 12) & 0x0F;
 	two += (c >> 6) & 0x3F;
 	three += c & 0x3F;
-	ft_putchar(one);
-	ft_putchar(two);
-	ft_putchar(three);
+	ft_putchar_fd(one, 2);
+	ft_putchar_fd(two, 2);
+	ft_putchar_fd(three, 2);
 	return (3);
 }
 
@@ -65,10 +65,10 @@ static int		four_bit(wchar_t c)
 	two += (c >> 12) & 0x3F;
 	three += (c >> 6) & 0x3F;
 	four += c & 0x3F;
-	ft_putchar(one);
-	ft_putchar(two);
-	ft_putchar(three);
-	ft_putchar(four);
+	ft_putchar_fd(one, 2);
+	ft_putchar_fd(two, 2);
+	ft_putchar_fd(three, 2);
+	ft_putchar_fd(four, 2);
 	return (4);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/11 10:21:09 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/09 12:21:42 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 15:48:22 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 15:48:23 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	ft_putnstr(char const *s, int len)
 		return ;
 	while (*(s + i) != '\0' && i < len)
 		i++;
-	write(1, s, i);
+	write(2, s, i);
 }

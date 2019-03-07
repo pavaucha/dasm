@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/13 11:04:05 by lezhang           #+#    #+#             */
-/*   Updated: 2017/12/18 15:14:46 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 15:44:44 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 15:47:41 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static int	ft_base_a_f(const char *str, int base, int i)
 	int		result;
 
 	result = 0;
-	while ((*(str + i) >= '0' && *(str + i) <= '9') || (*(str + i) >= 'A' &&
-			*(str + i) <= 'F') || (*(str + i) >= 'a' && *(str + i) <= 'f'))
+	while ((*(str + i) >= '0' && *(str + i) <= '9') || (*(str + i) >= 'A'
+			&& *(str + i) <= 'F') || (*(str + i) >= 'a' && *(str + i) <= 'f'))
 	{
 		if (*(str + i) >= '0' && *(str + i) <= '9')
 			result = ((*(str + i) - '0') + (result * base));
@@ -50,6 +50,8 @@ int			ft_atoi_base(const char *str, int base)
 	int		sign;
 	int		i;
 
+	if (str == NULL)
+		return (-1);
 	i = 0;
 	sign = 1;
 	while (*(str + i) < 33 || *(str + i) > 126)

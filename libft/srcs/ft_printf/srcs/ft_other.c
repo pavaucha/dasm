@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_other.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lezhang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/04 11:17:42 by lezhang           #+#    #+#             */
-/*   Updated: 2018/01/09 11:58:07 by lezhang          ###   ########.fr       */
+/*   Created: 2019/02/26 16:06:13 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 16:06:14 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void		ft_other_width(t_flags flags, int *len)
 	{
 		while (flags.width > 1)
 		{
-			ft_putchar(' ');
+			ft_putchar_fd(' ', 2);
 			(*len)++;
 			flags.width--;
 		}
@@ -34,9 +34,9 @@ static void		ft_other_width(t_flags flags, int *len)
 		while (flags.width > 1)
 		{
 			if (flags.zero == 0)
-				ft_putchar(' ');
+				ft_putchar_fd(' ', 2);
 			else if (flags.zero == 1)
-				ft_putchar('0');
+				ft_putchar_fd('0', 2);
 			(*len)++;
 			flags.width--;
 		}
@@ -51,7 +51,7 @@ int				ft_other(const char **format, t_flags flags)
 	ft_other_flags(&flags);
 	if (flags.minus == 0)
 		ft_other_width(flags, &len);
-	ft_putchar(**format);
+	ft_putchar_fd(**format, 2);
 	len++;
 	if (flags.minus == 1)
 		ft_other_width(flags, &len);

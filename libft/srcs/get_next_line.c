@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pavaucha <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mavui <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/14 15:32:06 by pavaucha          #+#    #+#             */
-/*   Updated: 2019/01/14 15:32:11 by pavaucha         ###   ########.fr       */
+/*   Created: 2019/02/26 15:49:52 by mavui             #+#    #+#             */
+/*   Updated: 2019/02/26 15:49:58 by mavui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static char		*ft_read(const int fd, char *str)
 	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
 		buf[ret] = '\0';
+		if (buf[0] == '\0')
+			break ;
 		temp = str;
 		if ((str = ft_strjoin(str, buf)) == NULL)
 			return (NULL);
@@ -43,8 +45,10 @@ static int		ft_last_line(int fd, char **line, char **gnl)
 	int				ret;
 	int				len;
 
-	len = ft_strlen(gnl[fd]);
-	if (gnl[fd][len] == '\0' && len > 0 && gnl[fd][len - 1] == '\n')
+	len = ft_strlen(gnl[fd]) - 1;
+	while (len > 0 && (gnl[fd][len] == '\t' || gnl[fd][len] == ' '))
+		len--;
+	if (len > 0 && gnl[fd][len] == '\n')
 	{
 		ret = 0;
 		while (gnl[fd][ret] && gnl[fd][ret] != '\n')
@@ -62,8 +66,8 @@ int				get_next_line(const int fd, char **line)
 	static char		*gnl[OPEN_MAX] = {NULL};
 	int				ret;
 
-	if (BUFF_SIZE < 1 || read(fd, NULL, 0) == -1 || line == NULL ||
-			fd > OPEN_MAX)
+	if (BUFF_SIZE < 1 || read(fd, NULL, 0) == -1 || line == NULL
+			|| fd > OPEN_MAX)
 		return (-1);
 	if (!gnl[fd] && (gnl[fd] = ft_strnew(1)) == NULL)
 		return (-1);
