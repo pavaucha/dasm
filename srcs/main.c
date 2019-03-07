@@ -6,7 +6,7 @@
 /*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:32:20 by pavaucha          #+#    #+#             */
-/*   Updated: 2019/03/07 14:01:27 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/07 14:04:14 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int				main(int ac, char **av)
 	t_champ		champ;
 	char		*str;
 
-	ft_initialize_strcut(&champ);	
+	ft_initialize_strcut(&champ);
 	if (ac != 2)
 	{
 		ft_printf("Please enter a champ to this format\n");
