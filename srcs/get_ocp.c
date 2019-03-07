@@ -6,13 +6,13 @@
 /*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 14:54:14 by pavaucha          #+#    #+#             */
-/*   Updated: 2019/03/07 10:07:19 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/07 10:32:06 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "reverse.h"
 
-char			*add_null(char *str)
+char		*add_null(char *str)
 {
 	char	*tmp;
 
@@ -26,7 +26,7 @@ char			*add_null(char *str)
 	return (str);
 }
 
-t_champ			ft_is_negative(t_champ champ, int i, int rep, int fd)
+t_champ		ft_is_negative(t_champ champ, int i, int rep, int fd)
 {
 	if (champ.instructions[i] <= 127)
 		return (champ);
@@ -46,7 +46,6 @@ t_champ			ft_is_negative(t_champ champ, int i, int rep, int fd)
 char		*ft_strjoin_free(char const *s1, char const *s2)
 {
 	char	*new_s;
-	void	*s;
 	size_t	len;
 
 	if (!s1 || !s2)
@@ -54,8 +53,8 @@ char		*ft_strjoin_free(char const *s1, char const *s2)
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	if (!(new_s = ft_strnew(len)))
 		return (NULL);
-	ft_strcpy(new_s, (char*)s1);
-	ft_strcat(new_s, (char*)s2);
+	ft_strcpy(new_s, (const char*)s1);
+	ft_strcat(new_s, (const char*)s2);
 	ft_strdel((void*)&s1);
 	ft_strdel((void*)&s2);
 	return (new_s);
@@ -63,8 +62,8 @@ char		*ft_strjoin_free(char const *s1, char const *s2)
 
 static char	*ft_take_ocp(t_champ champ, int *i)
 {
-	char	*ocp;
-	char	*tmp;
+	char			*ocp;
+	char			*tmp;
 
 	if ((ocp = ft_itoa_base(champ.instructions[*i], 2, 1)) == NULL)
 		return (NULL);
@@ -80,15 +79,15 @@ static char	*ft_take_ocp(t_champ champ, int *i)
 
 int			get_ocp(int fd, t_champ champ, int *i)
 {
-	char	*ocp;
-	int		j;
+	char			*ocp;
+	unsigned int	j;
 
 	if (complete_ocp(champ, fd, i) == 1)
 		return (1);
 	if ((ocp = ft_take_ocp(champ, i)) == NULL)
 		return (-1);
 	*i = *i + 1;
-	j = write_instruction(champ, ocp, i, fd);
+	j = (unsigned int)write_instruction(champ, ocp, i, fd);
 	ft_strdel(&ocp);
-	return (j);
+	return ((int)j);
 }

@@ -6,63 +6,51 @@
 #    By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/08 09:44:22 by pavaucha          #+#    #+#              #
-#    Updated: 2019/03/06 14:24:37 by pavaucha         ###   ########.fr        #
+#    Updated: 2019/03/07 10:45:54 by pavaucha         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = reverse_cor
 
-SRC_PATH	= srcs/
-OBJ_PATH	= objs/
-LIBFT_PATH	= libft/
-LIBFT_A		= libft/libft.a
+CC = cc
 
-SRC_NAME = 	main.c \
-			parsing_champ.c \
-			open_read_file.c \
-			complete_file.c \
-			get_ocp.c \
-			write_instruct.c
+CFLAGS			:=	-Wall  \
+					-Werror \
+					-Wextra \
 
-OBJ_NAME = $(SRC_NAME:.c=.o)
+SOURCES = 	srcs/main.c \
+			srcs/parsing_champ.c \
+			srcs/open_read_file.c \
+			srcs/complete_file.c \
+			srcs/get_ocp.c \
+			srcs/write_instruct.c
 
-SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
+INCLUDES = includes/reverse.h
 
-CC = gcc
+SRCS 			=	$(SOURCES)
 
-CFLAGS = -g -fsanitize=address -fno-omit-frame-pointer \
- 		 -fsanitize=address	\
- 		 -fno-omit-frame-pointer		\
- 		 -fsanitize-address-use-after-scope \
-
-# CFLAGS = -g3 
-
-LDFLAGS =  -Llibft
-LDLIBS = -lft
-CPPFLAGS = -I includes -I libft/includes
+OFILES			=	${SRCS:.c=.o}
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(LIBFT_A)
-	@$(CC) $(OBJ) -o $@ $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $(LDLIBS)
+$(NAME): libft $(OFILES)
+	gcc $(OFILES) $(OFLAGS) $(LIBS) libft/libft.a -o $(NAME)
 
-$(LIBFT_A):
-	@make -C $(LIBFT_PATH)
+%.o: %.c $(INCLUDES)
+	$(CC)  $< -c $(CFLAGS) -Iincludes -Ilibft/includes -o $@
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@mkdir $(OBJ_PATH) 2> /dev/null || true
-	@$(CC) -o $@ -c $< $(CFLAGS) $(CPPFLAGS)
+libft: libft/libft.a
+
+libft/libft.a:
+	make -C libft/
 
 clean:
-	@make clean -C $(LIBFT_PATH)
-	@rm -f $(OBJ)
-	@rmdir $(OBJ_PATH) 2> /dev/null || true
+	/bin/rm -f $(OFILES)
+	make -C libft/ clean
 
 fclean: clean
-	@make fclean -C $(LIBFT_PATH)
-	@rm -f $(NAME)
+	make -C libft/ fclean
+	@/bin/rm -f $(NAME)
+	@/bin/rm -rf $(NAME).dSYM/
 
 re: fclean all
-
-.PHONY: all, clean, fclean, re
