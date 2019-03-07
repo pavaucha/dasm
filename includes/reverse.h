@@ -6,7 +6,7 @@
 /*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 15:01:10 by mavui             #+#    #+#             */
-/*   Updated: 2019/03/07 09:41:23 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/07 11:26:09 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,19 +65,11 @@ typedef	struct				s_champ
 	uint8_t		comment[COMMENT_LEN + 1];
 }							t_champ;
 
-typedef	struct				s_ocp
-{
-	unsigned char	vide : 2;
-	unsigned char	param3 : 2;
-	unsigned char	param2 : 2;
-	unsigned char	param1 : 2;
-}							t_ocp;
-
 int 				        main(int ac, char **av);
 int     				    parsing_champ(char *name, t_champ *champ);
 int							complete(int fd, t_champ *champ);
 int							ft_error(int i);
-int							complete_file(int fd, t_champ champ);
+int							complete_file(char *str, t_champ champ);
 int     				    get_ocp(int fd, t_champ champ, int *i);
 char						*ft_strjoin_free(char const *s1, char const *s2);
 int							write_instruction(t_champ champ, char *ocp, int *i, int fd);

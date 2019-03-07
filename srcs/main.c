@@ -6,11 +6,20 @@
 /*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:32:20 by pavaucha          #+#    #+#             */
-/*   Updated: 2019/03/07 10:56:11 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/07 14:01:27 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "reverse.h"
+
+static void		ft_initialize_strcut(t_champ *champ)
+{
+	champ->len = 0;
+	ft_bzero(champ->magic, 4);
+	ft_bzero(champ->instructions, CHAMP_MAX_SIZE);
+	ft_bzero(champ->name, PROG_NAME_LEN);
+	ft_bzero(champ->comment, COMMENT_LEN);
+}
 
 static char		*open_file(char *name)
 {
@@ -34,6 +43,7 @@ int				main(int ac, char **av)
 	t_champ		champ;
 	char		*str;
 
+	ft_initialize_strcut(&champ);	
 	if (ac != 2)
 	{
 		ft_printf("Please enter a champ to this format\n");
@@ -47,8 +57,7 @@ int				main(int ac, char **av)
 		ft_strdel(&str);
 		return (ft_error(7));
 	}
-	if (complete_file(open(str, O_WRONLY
-		| O_TRUNC | O_CREAT, 0600), champ) != 0)
+	if (complete_file(str, champ) != 0)
 	{
 		ft_strdel(&str);
 		return (-1);

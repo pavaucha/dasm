@@ -6,7 +6,7 @@
 /*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/04 12:32:11 by pavaucha          #+#    #+#             */
-/*   Updated: 2019/03/07 10:52:08 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/07 13:57:20 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,12 @@ static void	write_instruct(int fd, t_champ champ)
 	}
 }
 
-int			complete_file(int fd, t_champ champ)
+int			complete_file(char *str, t_champ champ)
 {
-	if (fd == -1)
+	int		fd;
+
+	fd = 0;
+	if ((fd = open(str, O_WRONLY | O_TRUNC | O_CREAT, 0600)) == -1)
 	{
 		ft_error(7);
 		return (-1);
