@@ -6,11 +6,25 @@
 /*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 14:54:14 by pavaucha          #+#    #+#             */
-/*   Updated: 2019/03/06 18:21:43 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/07 10:07:19 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "reverse.h"
+
+char			*add_null(char *str)
+{
+	char	*tmp;
+
+	while (ft_strlen(str) < 8)
+	{
+		tmp = str;
+		if ((str = ft_strjoin("0", str)) == NULL)
+			return (NULL);
+		ft_strdel(&tmp);
+	}
+	return (str);
+}
 
 t_champ			ft_is_negative(t_champ champ, int i, int rep, int fd)
 {
@@ -24,6 +38,8 @@ t_champ			ft_is_negative(t_champ champ, int i, int rep, int fd)
 		rep--;
 	}
 	champ.instructions[i - 1] += 1;
+	if (champ.instructions[i - 1] == 0 && champ.instructions[i - 2] == 0)
+		champ.instructions[i - 2] += 1;
 	return (champ);
 }
 

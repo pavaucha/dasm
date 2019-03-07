@@ -6,7 +6,7 @@
 /*   By: pavaucha <pavaucha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/06 14:39:11 by pavaucha          #+#    #+#             */
-/*   Updated: 2019/03/06 17:55:45 by pavaucha         ###   ########.fr       */
+/*   Updated: 2019/03/07 10:04:55 by pavaucha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ static int		write_dir(int fd, t_champ champ, int i)
 
 	write(fd, "%", 1);
 	champ = ft_is_negative(champ, i, 4, fd);
-	if ((str = ft_strjoin_free(ft_itoa_base(champ.instructions[i], 2, 1),
-		ft_itoa_base(champ.instructions[i + 1], 2, 1))) == NULL)
+	if ((str = ft_strjoin_free(add_null(ft_itoa_base(champ.instructions[i], 2, 1)),
+		add_null(ft_itoa_base(champ.instructions[i + 1], 2, 1)))) == NULL)
 		return (-1);
 	if ((str = ft_strjoin_free(str,
-		ft_itoa_base(champ.instructions[i + 2], 2, 1))) == NULL)
+		add_null(ft_itoa_base(champ.instructions[i + 2], 2, 1)))) == NULL)
 		return (-1);
 	if ((str = ft_strjoin_free(str,
-		ft_itoa_base(champ.instructions[i + 3], 2, 1))) == NULL)
+		add_null(ft_itoa_base(champ.instructions[i + 3], 2, 1)))) == NULL)
 		return (-1);
 	j = ft_atoi_base(str, 2);
 	str = ft_itoa(j);
@@ -59,8 +59,8 @@ static int		write_ind(int fd, t_champ champ, int i, int d)
 	if (d == 9 || d == 10 || d == 11 || d == 12 || d == 14 || d == 15)
 		write(fd, "%", 1);
 	champ = ft_is_negative(champ, i, 2, fd);
-	if ((str = ft_strjoin_free(ft_itoa_base(champ.instructions[i], 2, 1),
-					ft_itoa_base(champ.instructions[i + 1], 2, 1))) == NULL)
+	if ((str = ft_strjoin_free(add_null(ft_itoa_base(champ.instructions[i], 2, 1)),
+					add_null(ft_itoa_base(champ.instructions[i + 1], 2, 1)))) == NULL)
 		return (-1);
 	j = ft_atoi_base(str, 2);
 	if ((str = ft_itoa(j)) == NULL)
